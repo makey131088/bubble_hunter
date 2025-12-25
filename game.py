@@ -49,6 +49,17 @@ Thread(
 
 window.mainloop()
 
+
+
+
+
+
+
+
+
+
+
+
 # установили pip install pillow библеотека
 #  python3 -m venv .venv создание виртуального окружения
 # deactivate выключить виртуальное окружение
