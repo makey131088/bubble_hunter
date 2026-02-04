@@ -19,10 +19,11 @@ class Submarine:
         self._image_src_right = ImageTk.PhotoImage(image_file)
         self._image_src_left = ImageTk.PhotoImage(image_file.transpose(Transpose.FLIP_LEFT_RIGHT))
         
+        # Добавляем движение верх и вниз
+        self._image_src_up = ImageTk.PhotoImage(image_file.rotate(90))
+        self._image_src_down = ImageTk.PhotoImage(image_file.rotate(-90))
         # Создаем объект на холсте, по умолчанию смотрим вправо
         self.image = self.canvas.create_image(200, 200, image=self._image_src_right)
-    
-    def __del__(self):...
     
     def move(self, event):
         if event.keysym == 'Right':
@@ -35,5 +36,7 @@ class Submarine:
             self.canvas.itemconfig(self.image, image=self._image_src_left)
         elif event.keysym == 'Up':
             self.canvas.move(self.image, 0, -10)
+            self.canvas.itemconfig(self.image, Image = self._image_src_up)
         elif event.keysym == 'Down':
             self.canvas.move(self.image, 0, 10)
+            self.canvas.itemconfig(self.image, Image = self._image_src_down)
