@@ -26,17 +26,17 @@ class Submarine:
         self.image = self.canvas.create_image(200, 200, image=self._image_src_right)
     
     def move(self, event):
-        if event.keysym == 'Right':
+        x1, y1, x2, y2 = self.canvas.bbox(self.image)  # Получаем координаты объекта
+        canvas_width = self.canvas.winfo_width()
+        canvas_height = self.canvas.winfo_height()
+    
+        if event.keysym == 'Right' and x2 < canvas_width:
             self.canvas.move(self.image, 10, 0)
-            # Меняем картинку на "правую"
             self.canvas.itemconfig(self.image, image=self._image_src_right)
-        elif event.keysym == 'Left':
+        elif event.keysym == 'Left' and x1 > 0:
             self.canvas.move(self.image, -10, 0)
-            # Меняем картинку на "левую"
             self.canvas.itemconfig(self.image, image=self._image_src_left)
-        elif event.keysym == 'Up':
+        elif event.keysym == 'Up' and y1 > 0:
             self.canvas.move(self.image, 0, -10)
-            self.canvas.itemconfig(self.image, Image = self._image_src_up)
-        elif event.keysym == 'Down':
+        elif event.keysym == 'Down' and y2 < canvas_height:
             self.canvas.move(self.image, 0, 10)
-            self.canvas.itemconfig(self.image, Image = self._image_src_down)
