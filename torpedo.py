@@ -51,11 +51,11 @@ class Torpedo:
         if not torpedo_coords:
             return False
             
-        # Простая проверка пересечения
+        
         t_left, t_top, t_right, t_bottom = torpedo_coords
         tg_left, tg_top, tg_right, tg_bottom = target_coords
         
-        # Если прямоугольники пересекаются
+        
         if (t_left < tg_right and 
             t_right > tg_left and 
             t_top < tg_bottom and 
