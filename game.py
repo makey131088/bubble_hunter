@@ -5,6 +5,8 @@ from tkinter import Tk, Canvas
 from submarine import Submarine
 from bubble import Bubble
 from time import sleep
+from torpedo import Torpedo
+
 window = Tk()
 
 window.geometry('800x600')
